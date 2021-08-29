@@ -1,11 +1,13 @@
 import Player from './Player';
 
-export default function PlayerList(){
+export default function PlayerList(props){
+    const { parsedPlayerArray } = props;
+    const playerNewArray = parsedPlayerArray.map(player => <Player key={player.gamerTag} {...player} />);
+
     return(
         <section className="PlayerList">
     <h1>Current participating players</h1>
-    <Player/>
-    {/* Players will be shown here */}
+    {playerNewArray}
   </section>
     );
 }
